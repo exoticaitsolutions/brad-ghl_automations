@@ -1,0 +1,8 @@
+# Ignore all JSON files
+*.json
+logs_detail/
+__pycache__/
+
+# Exception for the specific file
+!ghl-data-warehouse-437615-f27cdafe5d38.json
+
