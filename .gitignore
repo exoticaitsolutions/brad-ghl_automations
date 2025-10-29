@@ -1,8 +1,10 @@
 .env
-*.json
+token/
+cred/
 venv/
 __pycache__/
 *.log
-logs_detail/
+downloaded_files/
 screenshots/
-
+logs_detail/
+chromedriver-linux64/
