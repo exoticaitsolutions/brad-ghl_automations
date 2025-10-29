@@ -1,0 +1,8 @@
+.env
+*.json
+venv/
+__pycache__/
+*.log
+logs_detail/
+screenshots/
+
