@@ -4,7 +4,6 @@ import random
 import logging
 from datetime import datetime
 from dotenv import load_dotenv
-
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
@@ -97,6 +96,9 @@ def scrapping():
         # === Login ===
         print("🔑 Navigating to login page...")
         driver.get(WEBSITE_URL)
+       
+
+        time.sleep(random.randint(5, 10))
 
         email_input = wait.until(EC.element_to_be_clickable((By.ID, "email")))
         email_input.send_keys(GOHIGHLEVEL_EMAIL)

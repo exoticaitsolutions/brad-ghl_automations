@@ -161,9 +161,9 @@ def delete_workflows_for_subaccount(driver, subaccount_id, wait, workflows_to_de
 
                     # confirm - type CONFIRM if required
                     try:
-                        confirm_input = wait.until(EC.presence_of_element_located((By.XPATH, "//input[contains(@placeholder,'CONFIRM')]")))
+                        confirm_input = wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Delete']")))
                         confirm_input.clear()
-                        confirm_input.send_keys("CONFIRM")
+                        confirm_input.send_keys("DELETE")
                     except TimeoutException:
                         # some dialogs may not require typing
                         pass
@@ -175,7 +175,13 @@ def delete_workflows_for_subaccount(driver, subaccount_id, wait, workflows_to_de
                     driver.execute_script("arguments[0].click();", delete_confirm_button)
 
                     # wait until modal disappears
-                    wait.until_not(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'modal') or contains(@class,'dialog')]")))
+                    #  Wait until modal disappears
+                    wait.until_not(
+                        EC.presence_of_element_located(
+                            (By.XPATH, "//div[contains(@class,'modal') or contains(@class,'dialog')]")
+                        )
+                    )
+
                     logger.info(f"Deleted workflow '{workflow_name}' (row {i})")
                     deleted_count += 1
 
